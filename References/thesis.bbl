@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Knuth(1984)}]{texbook}
+{\sc Knuth, D.E.} (1984). {\em The {{\TeX}book}\/}. Addison-Wesley.
+
+\bibitem[{Lamport(1986)}]{latex}
+{\sc Lamport, L.} (1986). {\em {\LaTeX:} {A} Document Preparation System\/}.
+  Addison-Wesley.
+
+\bibitem[{Rudin(1973)}]{Rud73}
+{\sc Rudin, W.} (1973). {\em Functional {Analysis}\/}. McGraw-Hill, New York.
+
+\end{thebibliography}

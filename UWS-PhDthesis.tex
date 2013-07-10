@@ -1,0 +1,135 @@
+%input macros (i.e. write your own macros file called MacroFile1.tex)
+%\include{Macros/MacroFile1}
+\makeatletter
+\documentclass[oneside,12pt]{Classes/CUEDthesisPSnPDF}
+
+\ifpdf
+    \pdfinfo { /Title  (CUED PhD  Thesis Classes)
+               /Creator (TeX)
+               /Producer (pdfTeX)
+               /Author (ifeanyeg@gmail.com)
+               /CreationDate (March 2013)  %format D:YYYYMMDDhhmmss
+               /ModDate (D:July 2013)
+               /Subject (Template for writing a PhD/MPhil thesis in LaTeX)
+               /Keywords (PhD, Thesis)}
+    \pdfcatalog { /PageMode (/UseOutlines)
+                  /OpenAction (fitbh)  }
+\fi
+\title{Thesis topic ...%[.1ex]
+      Template for writing a PhD/MPhil thesis in LaTeX } % place your topic
+\ifpdf
+  \author{\href{mailto:ifeanyeg@gmail.com}{Candidate name}}
+  \collegeordept{\href{http://www.uws.edu.au/scem}{School of Electrical ...}}
+  \university{\href{http://www.uws.edu.au}{}}
+% insert below the file name that contains the crest in-place of 'Unilogo'
+  \crest{\includegraphics[width=50mm]{Unilogo}}
+\else
+  \author{Ifeanyi P. Egwutuoha}
+  \collegeordept{Department of Engineering}
+  \university{The University of Sydney}
+% insert below the file name that contains the crest in-place of 'UnivShield'
+  \crest{\includegraphics[bb = 0 0 292 336, width=20mm]{UnivShield}}
+\fi
+%
+% insert below the file name that contains the crest in-place of 'UnivShield'
+% \crest{\IncludeGraphicsW{UnivShield}{40mm}{14 14 73 81}}
+%
+\renewcommand{\submittedtext}{This thesis is submitted for the degree of}
+\degree{Doctor of Philosophy}
+\degreedate{The University of Western Sydney \\ August 2013}
+
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+% Put all the style files you want in the directory StyleFiles and usepackage like this:
+\usepackage{StyleFiles/watermark}
+\usepackage[acronym,toc]{glossaries}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{cleveref}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{lipsum} % http://ctan.org/pkg/lipsum
+
+\begin{document}
+%\cref{references.bib}
+%\language{english}
+
+\renewcommand\baselinestretch{1.2}
+\baselineskip=18pt plus1pt
+
+
+% A page with the abstract on including title and author etc may be
+% required to be handed in separately. If this is not so, then comment
+% the below 3 lines (between '\begin{abstractseparte}' and 
+% 'end{abstractseparate}'), normally like a declaration ... needs some more
+% work, mind as environment abstracts creates a new page!
+% \begin{abstractseparate}
+%   \input{Abstract/abstract}
+% \end{abstractseparate}
+
+
+
+
+% Using the watermark package which is in StyleFiles/
+% and to remove DRAFT COPY ONLY appearing on the top of all pages comment out below line
+%\watermark{DRAFT COPY ONLY}
+
+
+\maketitle
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\frontmatter
+\include{Abstract/abstract}
+\include{Dedication/dedication}
+\include{Acknowledgement/acknowledgement}
+\include{Publications/publications}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\glsaddall
+%\printglossaries
+\makeglossaries 
+%\newglossaryentry{tree}{name={tree},description={trees are the better humans}}
+%\addcontentsline{toc}{chapter}{Glossary}
+%\glossary{name={entry name}, description={entry description}}
+\chapter*{\glossaryname}
+\printglossary  %% Print the nomenclature
+\addcontentsline{toc}{chapter}{Glossary}
+%\addcontentsline{toc}{chapter}{Nomenclature}
+
+
+\mainmatter
+
+\include{Introduction/introduction}
+\include{Chapter1/chapter1}
+\include{Chapter2/chapter2}
+\include{Chapter3/chapter3}
+\include{Chapter4/chapter4}
+%\include{Chapter5/chapter5}
+\include{Conclusions/conclusions}
+
+\appendix
+\include{Appendix1/appendix1}
+\include{Appendix2/appendix2}
+
+
+%\bibliographystyle{Classes/CUEDbiblio}
+%\bibliographystyle{Classes/jmb}
+\bibliographystyle{ieeetr} %ieeetrthis works with package natbib
+%\bibliographystyle{Classes/jmb} % bibliography style
+%\renewcommand{\bibname}{References} % changes default name Bibliography to References
+\bibliography{References/references} % References file
+\addcontentsline{toc}{chapter}{References} %adds References to contents page
+%\bibliographystyle{amsplain}
+%\bibliography{references}
+\end{document}
+
